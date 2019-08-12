@@ -271,7 +271,9 @@ namespace visit_control.Models
             tbAddress.Text = visitor.address;
 
             btnNewVisitor.Visible = false;
-            btnNewVisit.Visible = false;
+            btnNewVisit.Visible = true;
+            btnCancel.Visible = false;
+            btnSaveVisitor.Visible = false;
         }
 
         private void btnNewVisit_Click(object sender, EventArgs e)

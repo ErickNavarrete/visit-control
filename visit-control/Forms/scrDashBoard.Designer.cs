@@ -34,7 +34,9 @@
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnSaveVisitor = new System.Windows.Forms.ToolStripButton();
+            this.btnSaveVisit = new System.Windows.Forms.ToolStripButton();
             this.btnNewVisitor = new System.Windows.Forms.ToolStripButton();
+            this.btnNewVisit = new System.Windows.Forms.ToolStripButton();
             this.tbMLastName = new System.Windows.Forms.TextBox();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -66,8 +68,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewVisit = new System.Windows.Forms.ToolStripButton();
-            this.btnSaveVisit = new System.Windows.Forms.ToolStripButton();
+            this.btnRecord = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbVisitantes.SuspendLayout();
@@ -88,7 +89,8 @@
             this.btnSaveVisitor,
             this.btnSaveVisit,
             this.btnNewVisitor,
-            this.btnNewVisit});
+            this.btnNewVisit,
+            this.btnRecord});
             this.toolStrip1.Location = new System.Drawing.Point(1, 60);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1130, 34);
@@ -133,6 +135,17 @@
             this.btnSaveVisitor.Visible = false;
             this.btnSaveVisitor.Click += new System.EventHandler(this.btnSaveVisitor_Click);
             // 
+            // btnSaveVisit
+            // 
+            this.btnSaveVisit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnSaveVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveVisit.Image")));
+            this.btnSaveVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSaveVisit.Name = "btnSaveVisit";
+            this.btnSaveVisit.Size = new System.Drawing.Size(104, 31);
+            this.btnSaveVisit.Text = "Registrar Visita";
+            this.btnSaveVisit.Visible = false;
+            this.btnSaveVisit.Click += new System.EventHandler(this.btnSaveVisit_Click);
+            // 
             // btnNewVisitor
             // 
             this.btnNewVisitor.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -142,6 +155,17 @@
             this.btnNewVisitor.Size = new System.Drawing.Size(110, 31);
             this.btnNewVisitor.Text = "Nuevo Visitante";
             this.btnNewVisitor.Click += new System.EventHandler(this.btnNewVisitor_Click);
+            // 
+            // btnNewVisit
+            // 
+            this.btnNewVisit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnNewVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnNewVisit.Image")));
+            this.btnNewVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNewVisit.Name = "btnNewVisit";
+            this.btnNewVisit.Size = new System.Drawing.Size(92, 31);
+            this.btnNewVisit.Text = "Nueva Visita";
+            this.btnNewVisit.Visible = false;
+            this.btnNewVisit.Click += new System.EventHandler(this.btnNewVisit_Click);
             // 
             // tbMLastName
             // 
@@ -491,27 +515,13 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // btnNewVisit
+            // btnRecord
             // 
-            this.btnNewVisit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnNewVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnNewVisit.Image")));
-            this.btnNewVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNewVisit.Name = "btnNewVisit";
-            this.btnNewVisit.Size = new System.Drawing.Size(92, 31);
-            this.btnNewVisit.Text = "Nueva Visita";
-            this.btnNewVisit.Visible = false;
-            this.btnNewVisit.Click += new System.EventHandler(this.btnNewVisit_Click);
-            // 
-            // btnSaveVisit
-            // 
-            this.btnSaveVisit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnSaveVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveVisit.Image")));
-            this.btnSaveVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSaveVisit.Name = "btnSaveVisit";
-            this.btnSaveVisit.Size = new System.Drawing.Size(104, 31);
-            this.btnSaveVisit.Text = "Registrar Visita";
-            this.btnSaveVisit.Visible = false;
-            this.btnSaveVisit.Click += new System.EventHandler(this.btnSaveVisit_Click);
+            this.btnRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnRecord.Image")));
+            this.btnRecord.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRecord.Name = "btnRecord";
+            this.btnRecord.Size = new System.Drawing.Size(73, 31);
+            this.btnRecord.Text = "Registro ";
             // 
             // scrDashBoard
             // 
@@ -579,5 +589,6 @@
         private System.Windows.Forms.ToolStripButton btnCancel;
         private System.Windows.Forms.ToolStripButton btnNewVisit;
         private System.Windows.Forms.ToolStripButton btnSaveVisit;
+        private System.Windows.Forms.ToolStripButton btnRecord;
     }
 }
