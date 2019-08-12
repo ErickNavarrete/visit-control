@@ -54,6 +54,13 @@ namespace visit_control.Models
             tbAddress.Enabled = option;
         }
 
+        private void enable_disable_visit(Boolean option)
+        {
+            tbDepartment.Enabled = option;
+            tbReason.Enabled = option;
+            rtbObservation.Enabled = option;
+        }
+
         private void clean_fields_visitor()
         {
             pbImage.BackgroundImage = null;
@@ -86,6 +93,18 @@ namespace visit_control.Models
             {
                 MessageBox.Show("Campo obligatorio", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tbPhone.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool check_fields_visit()
+        {
+            if (string.IsNullOrEmpty(tbDepartment.Text))
+            {
+                MessageBox.Show("Campo obligatorio", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbDepartment.Focus();
                 return false;
             }
 
@@ -250,6 +269,35 @@ namespace visit_control.Models
             tbEmail.Text = visitor.email;
             tbPhone.Text = visitor.phone;
             tbAddress.Text = visitor.address;
+
+            btnNewVisitor.Visible = false;
+            btnNewVisit.Visible = false;
+        }
+
+        private void btnNewVisit_Click(object sender, EventArgs e)
+        {
+            enable_disable_visit(true);
+            btnNewVisit.Visible = false;
+            btnSaveVisit.Visible = true;
+        }
+
+        private void btnSaveVisit_Click(object sender, EventArgs e)
+        {
+            if(!check_fields_visit()) return;
+            var db = new ConnectionDB();
+            var visitorDepartment = new Visitors_Department
+            {
+                department = tbDepartment.Text,
+                reason =  tbReason.Text,
+                observation = rtbObservation.Text,
+                entry = DateTime.Now,
+                id_visitor = id_visitor
+            };
+
+            db.Visitors_Department.Add(visitorDepartment);
+            db.SaveChanges();
+
+            MessageBox.Show("Visita registrada con éxito", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
     }

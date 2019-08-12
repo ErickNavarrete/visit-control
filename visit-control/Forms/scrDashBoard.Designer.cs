@@ -66,6 +66,8 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewVisit = new System.Windows.Forms.ToolStripButton();
+            this.btnSaveVisit = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbVisitantes.SuspendLayout();
@@ -84,7 +86,9 @@
             this.btnSearch,
             this.btnCancel,
             this.btnSaveVisitor,
-            this.btnNewVisitor});
+            this.btnSaveVisit,
+            this.btnNewVisitor,
+            this.btnNewVisit});
             this.toolStrip1.Location = new System.Drawing.Point(1, 60);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1130, 34);
@@ -487,6 +491,28 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
+            // btnNewVisit
+            // 
+            this.btnNewVisit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnNewVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnNewVisit.Image")));
+            this.btnNewVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNewVisit.Name = "btnNewVisit";
+            this.btnNewVisit.Size = new System.Drawing.Size(92, 31);
+            this.btnNewVisit.Text = "Nueva Visita";
+            this.btnNewVisit.Visible = false;
+            this.btnNewVisit.Click += new System.EventHandler(this.btnNewVisit_Click);
+            // 
+            // btnSaveVisit
+            // 
+            this.btnSaveVisit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnSaveVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveVisit.Image")));
+            this.btnSaveVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSaveVisit.Name = "btnSaveVisit";
+            this.btnSaveVisit.Size = new System.Drawing.Size(104, 31);
+            this.btnSaveVisit.Text = "Registrar Visita";
+            this.btnSaveVisit.Visible = false;
+            this.btnSaveVisit.Click += new System.EventHandler(this.btnSaveVisit_Click);
+            // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,5 +577,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.ToolStripButton btnCancel;
+        private System.Windows.Forms.ToolStripButton btnNewVisit;
+        private System.Windows.Forms.ToolStripButton btnSaveVisit;
     }
 }
