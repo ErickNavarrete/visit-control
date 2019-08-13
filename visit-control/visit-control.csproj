@@ -91,6 +91,12 @@
     <Compile Include="Forms\scrDashBoard.Designer.cs">
       <DependentUpon>scrDashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\scrRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\scrRecord.Designer.cs">
+      <DependentUpon>scrRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\scrReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\scrDashBoard.resx">
       <DependentUpon>scrDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\scrRecord.resx">
+      <DependentUpon>scrRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\scrReport.resx">
       <DependentUpon>scrReport.cs</DependentUpon>
