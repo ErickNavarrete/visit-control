@@ -103,6 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CameraController.cs" />
     <Compile Include="Connection\ConnectionDB.cs" />
     <Compile Include="Forms\scrCapturePhoto.cs">
       <SubType>Form</SubType>

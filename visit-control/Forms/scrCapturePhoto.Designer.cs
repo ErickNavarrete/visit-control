@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.photoInput = new System.Windows.Forms.PictureBox();
             this.btnStartCamera = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnCapturePhoto = new MaterialSkin.Controls.MaterialFlatButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoInput)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // photoInput
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(13, 79);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(500, 275);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.photoInput.Location = new System.Drawing.Point(13, 79);
+            this.photoInput.Name = "photoInput";
+            this.photoInput.Size = new System.Drawing.Size(500, 275);
+            this.photoInput.TabIndex = 0;
+            this.photoInput.TabStop = false;
             // 
             // btnStartCamera
             // 
@@ -52,10 +52,11 @@
             this.btnStartCamera.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnStartCamera.Name = "btnStartCamera";
             this.btnStartCamera.Primary = false;
-            this.btnStartCamera.Size = new System.Drawing.Size(117, 36);
+            this.btnStartCamera.Size = new System.Drawing.Size(120, 36);
             this.btnStartCamera.TabIndex = 1;
-            this.btnStartCamera.Text = "Inicar camara";
+            this.btnStartCamera.Text = "INICIAR CAMARA";
             this.btnStartCamera.UseVisualStyleBackColor = true;
+            this.btnStartCamera.Click += new System.EventHandler(this.BtnStartCamera_Click);
             // 
             // btnCapturePhoto
             // 
@@ -71,6 +72,7 @@
             this.btnCapturePhoto.TabIndex = 2;
             this.btnCapturePhoto.Text = "Tomar foto";
             this.btnCapturePhoto.UseVisualStyleBackColor = true;
+            this.btnCapturePhoto.Click += new System.EventHandler(this.BtnCapturePhoto_Click);
             // 
             // scrCapturePhoto
             // 
@@ -79,10 +81,10 @@
             this.ClientSize = new System.Drawing.Size(525, 459);
             this.Controls.Add(this.btnCapturePhoto);
             this.Controls.Add(this.btnStartCamera);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.photoInput);
             this.Name = "scrCapturePhoto";
             this.Text = "Capturar foto";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,7 +92,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox photoInput;
         private MaterialSkin.Controls.MaterialFlatButton btnStartCamera;
         private MaterialSkin.Controls.MaterialFlatButton btnCapturePhoto;
     }

@@ -11,7 +11,7 @@ using OpenCvSharp.Extensions;
 namespace visit_control.Controllers
 {
 
-    class camera
+    public class Camera
     {
 
         private camera()
@@ -34,6 +34,8 @@ namespace visit_control.Controllers
         private void CaptureCameraCallback()
         {
             frame = new Mat();
+            image = new VideoCapture(0);
+            camera.Open(0);
         }
     }
 }
