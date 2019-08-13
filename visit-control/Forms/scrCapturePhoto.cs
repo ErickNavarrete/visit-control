@@ -60,7 +60,15 @@ namespace visit_control.Forms
         {
             if (isCameraRunning)
             {
-                Bitmap snapshot = new Bitmap(photoInput.BackgroundImage);
+                if (photoInput.BackgroundImage != null)
+                {
+                    Bitmap snapshot = new Bitmap(photoInput.BackgroundImage);
+
+                }
+                else
+                {
+                    Console.WriteLine("No contiene imagen");
+                }
             }
             else
             {
