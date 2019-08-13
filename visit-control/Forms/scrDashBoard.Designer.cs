@@ -101,6 +101,7 @@
             // 
             // tbSearch
             // 
+            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(485, 34);
             // 
@@ -403,6 +404,7 @@
             this.btnCamera.Size = new System.Drawing.Size(34, 34);
             this.btnCamera.TabIndex = 50;
             this.btnCamera.UseVisualStyleBackColor = false;
+            this.btnCamera.Click += new System.EventHandler(this.BtnCamera_Click);
             // 
             // groupBox1
             // 

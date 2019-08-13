@@ -348,5 +348,12 @@ namespace visit_control.Models
             }
         }
         #endregion
+
+        private void BtnCamera_Click(object sender, EventArgs e)
+        {
+            var scrcapturePhoto = new scrCapturePhoto();
+            scrcapturePhoto.Show();
+            scrcapturePhoto.BringToFront();
+        }
     }
 }
