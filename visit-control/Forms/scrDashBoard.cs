@@ -355,5 +355,12 @@ namespace visit_control.Models
             scrcapturePhoto.Show();
             scrcapturePhoto.BringToFront();
         }
+
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            var scrRecord = new scrRecord();
+            scrRecord.Show();
+            scrRecord.BringToFront();
+        }
     }
 }

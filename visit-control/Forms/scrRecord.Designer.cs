@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scrRecord));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbSearchValue = new System.Windows.Forms.TextBox();
             this.dtpF1 = new System.Windows.Forms.DateTimePicker();
             this.dtpF2 = new System.Windows.Forms.DateTimePicker();
@@ -40,7 +40,10 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsPrint = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.printTicket = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisit)).BeginInit();
+            this.cmsPrint.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbSearchValue
@@ -132,13 +135,30 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle1.Format = "G";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "G";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column3.HeaderText = "FECHA DE ENTRADA";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 200;
+            // 
+            // cmsPrint
+            // 
+            this.cmsPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmsPrint.Depth = 0;
+            this.cmsPrint.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.printTicket});
+            this.cmsPrint.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cmsPrint.Name = "cmsPrint";
+            this.cmsPrint.Size = new System.Drawing.Size(181, 48);
+            // 
+            // printTicket
+            // 
+            this.printTicket.Name = "printTicket";
+            this.printTicket.Size = new System.Drawing.Size(180, 22);
+            this.printTicket.Text = "IMPRIMIR TICKET";
+            this.printTicket.Click += new System.EventHandler(this.printTicket_Click);
             // 
             // scrRecord
             // 
@@ -155,6 +175,7 @@
             this.Text = "Registro";
             this.Load += new System.EventHandler(this.scrRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisit)).EndInit();
+            this.cmsPrint.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +193,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private MaterialSkin.Controls.MaterialContextMenuStrip cmsPrint;
+        private System.Windows.Forms.ToolStripMenuItem printTicket;
     }
 }

@@ -101,7 +101,6 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(485, 34);
             // 
@@ -175,8 +174,9 @@
             this.btnRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnRecord.Image")));
             this.btnRecord.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(73, 31);
+            this.btnRecord.Size = new System.Drawing.Size(73, 20);
             this.btnRecord.Text = "Registro ";
+            this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // tbMLastName
             // 
