@@ -55,5 +55,15 @@ namespace visit_control
             scrDashBoard.BringToFront();
             Hide();
         }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case Keys.Enter:
+                    btLogin.Focus();
+                    break;
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@
             this.btnSaveVisit = new System.Windows.Forms.ToolStripButton();
             this.btnNewVisitor = new System.Windows.Forms.ToolStripButton();
             this.btnNewVisit = new System.Windows.Forms.ToolStripButton();
+            this.btnRecord = new System.Windows.Forms.ToolStripButton();
             this.tbMLastName = new System.Windows.Forms.TextBox();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tbLastName = new System.Windows.Forms.TextBox();
@@ -53,6 +54,8 @@
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
             this.gbVisitantes = new System.Windows.Forms.GroupBox();
+            this.btnImage = new System.Windows.Forms.Button();
+            this.btnCamera = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbReason = new System.Windows.Forms.TextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
@@ -68,7 +71,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRecord = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbVisitantes.SuspendLayout();
@@ -167,13 +169,21 @@
             this.btnNewVisit.Visible = false;
             this.btnNewVisit.Click += new System.EventHandler(this.btnNewVisit_Click);
             // 
+            // btnRecord
+            // 
+            this.btnRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnRecord.Image")));
+            this.btnRecord.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRecord.Name = "btnRecord";
+            this.btnRecord.Size = new System.Drawing.Size(73, 31);
+            this.btnRecord.Text = "Registro ";
+            // 
             // tbMLastName
             // 
             this.tbMLastName.Enabled = false;
             this.tbMLastName.Location = new System.Drawing.Point(157, 138);
             this.tbMLastName.Name = "tbMLastName";
             this.tbMLastName.Size = new System.Drawing.Size(191, 20);
-            this.tbMLastName.TabIndex = 37;
+            this.tbMLastName.TabIndex = 2;
             // 
             // materialLabel11
             // 
@@ -195,7 +205,7 @@
             this.tbLastName.Location = new System.Drawing.Point(157, 90);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(191, 20);
-            this.tbLastName.TabIndex = 36;
+            this.tbLastName.TabIndex = 1;
             // 
             // materialLabel10
             // 
@@ -217,7 +227,7 @@
             this.tbPhone.Location = new System.Drawing.Point(382, 138);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(191, 20);
-            this.tbPhone.TabIndex = 41;
+            this.tbPhone.TabIndex = 5;
             // 
             // tbEmail
             // 
@@ -225,7 +235,7 @@
             this.tbEmail.Location = new System.Drawing.Point(382, 90);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(191, 20);
-            this.tbEmail.TabIndex = 40;
+            this.tbEmail.TabIndex = 4;
             // 
             // materialLabel7
             // 
@@ -261,7 +271,7 @@
             this.tbAlias.Location = new System.Drawing.Point(382, 40);
             this.tbAlias.Name = "tbAlias";
             this.tbAlias.Size = new System.Drawing.Size(191, 20);
-            this.tbAlias.TabIndex = 39;
+            this.tbAlias.TabIndex = 3;
             // 
             // tbName
             // 
@@ -269,7 +279,7 @@
             this.tbName.Location = new System.Drawing.Point(157, 40);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(191, 20);
-            this.tbName.TabIndex = 35;
+            this.tbName.TabIndex = 0;
             // 
             // materialLabel2
             // 
@@ -312,15 +322,14 @@
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbImage.TabIndex = 38;
             this.pbImage.TabStop = false;
-            this.pbImage.Click += new System.EventHandler(this.pbImage_Click);
             // 
             // tbAddress
             // 
             this.tbAddress.Enabled = false;
-            this.tbAddress.Location = new System.Drawing.Point(8, 193);
+            this.tbAddress.Location = new System.Drawing.Point(157, 193);
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(338, 20);
-            this.tbAddress.TabIndex = 48;
+            this.tbAddress.Size = new System.Drawing.Size(416, 20);
+            this.tbAddress.TabIndex = 6;
             // 
             // materialLabel13
             // 
@@ -329,7 +338,7 @@
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel13.Location = new System.Drawing.Point(8, 171);
+            this.materialLabel13.Location = new System.Drawing.Point(153, 171);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
             this.materialLabel13.Size = new System.Drawing.Size(77, 19);
@@ -340,6 +349,8 @@
             // 
             this.gbVisitantes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbVisitantes.BackColor = System.Drawing.Color.Transparent;
+            this.gbVisitantes.Controls.Add(this.btnImage);
+            this.gbVisitantes.Controls.Add(this.btnCamera);
             this.gbVisitantes.Controls.Add(this.pbImage);
             this.gbVisitantes.Controls.Add(this.materialLabel13);
             this.gbVisitantes.Controls.Add(this.tbAddress);
@@ -361,6 +372,37 @@
             this.gbVisitantes.TabIndex = 50;
             this.gbVisitantes.TabStop = false;
             this.gbVisitantes.Text = "Datos Visitante";
+            // 
+            // btnImage
+            // 
+            this.btnImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImage.BackColor = System.Drawing.Color.Transparent;
+            this.btnImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImage.BackgroundImage")));
+            this.btnImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImage.Enabled = false;
+            this.btnImage.FlatAppearance.BorderSize = 0;
+            this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImage.Location = new System.Drawing.Point(88, 167);
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Size = new System.Drawing.Size(42, 42);
+            this.btnImage.TabIndex = 51;
+            this.btnImage.UseVisualStyleBackColor = false;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
+            // 
+            // btnCamera
+            // 
+            this.btnCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCamera.BackColor = System.Drawing.Color.Transparent;
+            this.btnCamera.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCamera.BackgroundImage")));
+            this.btnCamera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCamera.Enabled = false;
+            this.btnCamera.FlatAppearance.BorderSize = 0;
+            this.btnCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCamera.Location = new System.Drawing.Point(48, 171);
+            this.btnCamera.Name = "btnCamera";
+            this.btnCamera.Size = new System.Drawing.Size(34, 34);
+            this.btnCamera.TabIndex = 50;
+            this.btnCamera.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -385,7 +427,7 @@
             this.tbReason.Location = new System.Drawing.Point(12, 106);
             this.tbReason.Name = "tbReason";
             this.tbReason.Size = new System.Drawing.Size(561, 20);
-            this.tbReason.TabIndex = 53;
+            this.tbReason.TabIndex = 1;
             // 
             // materialLabel5
             // 
@@ -407,7 +449,7 @@
             this.rtbObservation.Location = new System.Drawing.Point(12, 164);
             this.rtbObservation.Name = "rtbObservation";
             this.rtbObservation.Size = new System.Drawing.Size(561, 96);
-            this.rtbObservation.TabIndex = 52;
+            this.rtbObservation.TabIndex = 2;
             this.rtbObservation.Text = "";
             // 
             // materialLabel4
@@ -430,7 +472,7 @@
             this.tbDepartment.Location = new System.Drawing.Point(12, 50);
             this.tbDepartment.Name = "tbDepartment";
             this.tbDepartment.Size = new System.Drawing.Size(561, 20);
-            this.tbDepartment.TabIndex = 50;
+            this.tbDepartment.TabIndex = 0;
             // 
             // materialLabel3
             // 
@@ -515,14 +557,6 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // btnRecord
-            // 
-            this.btnRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnRecord.Image")));
-            this.btnRecord.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(73, 31);
-            this.btnRecord.Text = "Registro ";
-            // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,5 +624,7 @@
         private System.Windows.Forms.ToolStripButton btnNewVisit;
         private System.Windows.Forms.ToolStripButton btnSaveVisit;
         private System.Windows.Forms.ToolStripButton btnRecord;
+        internal System.Windows.Forms.Button btnImage;
+        internal System.Windows.Forms.Button btnCamera;
     }
 }
