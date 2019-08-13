@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using visit_control.Connection;
+using visit_control.Forms;
+using visit_control.PDF;
 
 namespace visit_control.Models
 {
@@ -44,7 +46,8 @@ namespace visit_control.Models
 
         private void enable_disable_visitor(Boolean option)
         {
-            pbImage.Enabled = option;
+            btnImage.Enabled = option;
+            btnCamera.Enabled = option;
             tbName.Enabled = option;
             tbLastName.Enabled = option;
             tbMLastName.Enabled = option;
@@ -71,6 +74,13 @@ namespace visit_control.Models
             tbEmail.Text = string.Empty;
             tbPhone.Text = string.Empty;
             tbAddress.Text = string.Empty;
+        }
+
+        private void clean_fields_visit()
+        {
+            tbDepartment.Text = string.Empty;
+            tbReason.Text = string.Empty;
+            rtbObservation.Text = string.Empty;
         }
 
         private bool check_fields_visitor()
@@ -155,7 +165,7 @@ namespace visit_control.Models
             }
         }
 
-        public Image ConvertBase64ToImage(string base64String)
+        private Image ConvertBase64ToImage(string base64String)
         {
             // Convert base 64 string to byte[]
             var imageBytes = Convert.FromBase64String(base64String);
@@ -173,6 +183,20 @@ namespace visit_control.Models
                 }
             }
         }
+
+        private void print_visitor_info(string name, string department, DateTime entry)
+        {
+            dsVisitorInfo ds = new dsVisitorInfo();
+            crVisitor cr = new crVisitor();
+
+            ds.dtData.AdddtDataRow(name.ToUpper(), department.ToUpper(), entry.ToString("dd-MMMM-yyyy hh:mm:ss"));
+
+            cr.SetDataSource(ds);
+            scrReport scr = new scrReport {crvReport = {ReportSource = cr}};
+            scr.ShowDialog();
+            ds.Clear();
+            cr.Close();
+        }
         #endregion
 
         #region BOTONES
@@ -183,6 +207,8 @@ namespace visit_control.Models
             btnCancel.Visible = true;
             btnSaveVisitor.Visible = true;
             btnNewVisitor.Visible = false;
+            btnNewVisit.Visible = false;
+            btnSaveVisit.Visible = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -192,6 +218,8 @@ namespace visit_control.Models
             btnCancel.Visible = false;
             btnSaveVisitor.Visible = false;
             btnNewVisitor.Visible = true;
+            btnNewVisit.Visible = false;
+            btnSaveVisit.Visible = false;
         }
 
         private void btnSaveVisitor_Click(object sender, EventArgs e)
@@ -222,26 +250,12 @@ namespace visit_control.Models
             clean_fields_visitor();
             enable_disable_visitor(false);
             fill_dgv("");
-        }
 
-        private void pbImage_Click(object sender, EventArgs e)
-        {
-            var ofd = new OpenFileDialog
-            {
-                Filter = "Archivos de Imagen JPG|*.jpg|Todos los archivos|*.*",
-                FilterIndex = 1,
-                RestoreDirectory = true
-            };
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                var image_name = ofd.FileName;
-                pbImage.BackgroundImage = Image.FromFile(image_name);
-            }
-            else
-            {
-                pbImage.BackgroundImage = null;
-            }
+            btnCancel.Visible = false;
+            btnSaveVisitor.Visible = false;
+            btnNewVisitor.Visible = true;
+            btnNewVisit.Visible = false;
+            btnSaveVisit.Visible = false;
         }
 
         private void stbtSearch_Click(object sender, EventArgs e)
@@ -272,7 +286,7 @@ namespace visit_control.Models
 
             btnNewVisitor.Visible = false;
             btnNewVisit.Visible = true;
-            btnCancel.Visible = false;
+            btnCancel.Visible = true;
             btnSaveVisitor.Visible = false;
         }
 
@@ -285,7 +299,8 @@ namespace visit_control.Models
 
         private void btnSaveVisit_Click(object sender, EventArgs e)
         {
-            if(!check_fields_visit()) return;
+            string name = tbName.Text + " " + tbLastName.Text + " " + tbMLastName.Text;
+            if (!check_fields_visit()) return;
             var db = new ConnectionDB();
             var visitorDepartment = new Visitors_Department
             {
@@ -300,6 +315,37 @@ namespace visit_control.Models
             db.SaveChanges();
 
             MessageBox.Show("Visita registrada con éxito", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            print_visitor_info(name, visitorDepartment.department, visitorDepartment.entry);
+            clean_fields_visitor();
+            clean_fields_visit();
+            enable_disable_visitor(false);
+            enable_disable_visit(false);
+
+            btnCancel.Visible = false;
+            btnSaveVisitor.Visible = false;
+            btnNewVisitor.Visible = true;
+            btnNewVisit.Visible = false;
+            btnSaveVisit.Visible = false;
+        }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog
+            {
+                Filter = "Archivos de Imagen JPG|*.jpg|Todos los archivos|*.*",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var image_name = ofd.FileName;
+                pbImage.BackgroundImage = Image.FromFile(image_name);
+            }
+            else
+            {
+                pbImage.BackgroundImage = null;
+            }
         }
         #endregion
     }
