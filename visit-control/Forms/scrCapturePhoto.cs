@@ -12,6 +12,7 @@ using MaterialSkin.Controls;
 using MaterialSkin;
 using visit_control.Camera;
 using System.Drawing.Imaging;
+using System.IO;
 
 namespace visit_control.Forms
 {
@@ -20,8 +21,9 @@ namespace visit_control.Forms
        
         private CameraController controllerCamera;
         bool isCameraRunning = false;
+        private PictureBox picture;
 
-        public scrCapturePhoto()
+        public scrCapturePhoto(PictureBox picture)
         {
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -36,6 +38,7 @@ namespace visit_control.Forms
                 TextShade.WHITE
             );
 
+            this.picture = picture;
             controllerCamera = new CameraController(photoInput, isCameraRunning);
         }
 
@@ -46,12 +49,14 @@ namespace visit_control.Forms
                 controllerCamera.CaptureCamera();
                 btnStartCamera.Text = "DETENER CAMARA";
                 isCameraRunning = true;
+                controllerCamera.setIsCameraRunning(isCameraRunning);
             }
             else
             {
-                controllerCamera.CaptureCamera();
+                controllerCamera.stopCamera();
                 btnStartCamera.Text = "INICIAR CAMARA";
                 isCameraRunning = false;
+                controllerCamera.setIsCameraRunning(isCameraRunning);
             }
 
         }
@@ -62,8 +67,13 @@ namespace visit_control.Forms
             {
                 if (photoInput.BackgroundImage != null)
                 {
-                    Bitmap snapshot = new Bitmap(photoInput.BackgroundImage);
-
+                    Bitmap bitmap = new Bitmap(photoInput.BackgroundImage);
+                    MemoryStream stream = new MemoryStream();
+                    bitmap.Save(stream, ImageFormat.Jpeg);
+                    picture.BackgroundImage = Image.FromStream(stream);
+                    controllerCamera.setIsCameraRunning(false);
+                    controllerCamera.stopCamera();
+                    this.Close();
                 }
                 else
                 {
@@ -74,6 +84,13 @@ namespace visit_control.Forms
             {
                 Console.WriteLine("Cannot take picture if the camera isn't capturing image!");
             }
+        }
+
+        private void scrCapturePhoto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            controllerCamera.stopCamera();
+            isCameraRunning = false;
+            controllerCamera.setIsCameraRunning(isCameraRunning);
         }
     }
 }

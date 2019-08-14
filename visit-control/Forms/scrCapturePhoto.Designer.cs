@@ -82,8 +82,12 @@
             this.Controls.Add(this.btnCapturePhoto);
             this.Controls.Add(this.btnStartCamera);
             this.Controls.Add(this.photoInput);
+            this.MaximizeBox = false;
             this.Name = "scrCapturePhoto";
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Capturar foto";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.scrCapturePhoto_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.photoInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

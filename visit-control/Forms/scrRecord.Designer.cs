@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(scrRecord));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbSearchValue = new System.Windows.Forms.TextBox();
             this.dtpF1 = new System.Windows.Forms.DateTimePicker();
             this.dtpF2 = new System.Windows.Forms.DateTimePicker();
@@ -100,6 +100,7 @@
             this.Column7,
             this.Column2,
             this.Column3});
+            this.dgvVisit.ContextMenuStrip = this.cmsPrint;
             this.dgvVisit.Location = new System.Drawing.Point(12, 107);
             this.dgvVisit.Name = "dgvVisit";
             this.dgvVisit.ReadOnly = true;
@@ -135,9 +136,9 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle2.Format = "G";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "G";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "FECHA DE ENTRADA";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -151,12 +152,12 @@
             this.printTicket});
             this.cmsPrint.MouseState = MaterialSkin.MouseState.HOVER;
             this.cmsPrint.Name = "cmsPrint";
-            this.cmsPrint.Size = new System.Drawing.Size(181, 48);
+            this.cmsPrint.Size = new System.Drawing.Size(166, 26);
             // 
             // printTicket
             // 
             this.printTicket.Name = "printTicket";
-            this.printTicket.Size = new System.Drawing.Size(180, 22);
+            this.printTicket.Size = new System.Drawing.Size(165, 22);
             this.printTicket.Text = "IMPRIMIR TICKET";
             this.printTicket.Click += new System.EventHandler(this.printTicket_Click);
             // 

@@ -351,7 +351,7 @@ namespace visit_control.Models
 
         private void BtnCamera_Click(object sender, EventArgs e)
         {
-            var scrcapturePhoto = new scrCapturePhoto();
+            var scrcapturePhoto = new scrCapturePhoto(pbImage);
             scrcapturePhoto.Show();
             scrcapturePhoto.BringToFront();
         }

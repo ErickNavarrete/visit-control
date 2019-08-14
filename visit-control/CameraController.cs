@@ -36,6 +36,19 @@ namespace visit_control.Camera
             camera.Start();
         }
 
+        public void stopCamera()
+        {
+            try
+            {
+                capture.Release();
+                capture.Dispose();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
         private void CaptureCameraCallback()
         {
             frame = new Mat();
@@ -54,7 +67,7 @@ namespace visit_control.Camera
                         photoInput.BackgroundImage.Dispose();
                     }
 
-                    photoInput.Image = image;
+                    photoInput.BackgroundImage = image;
                 }
             }
         }
