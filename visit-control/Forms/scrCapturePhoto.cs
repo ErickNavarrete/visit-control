@@ -40,28 +40,13 @@ namespace visit_control.Forms
 
             this.picture = picture;
             controllerCamera = new CameraController(photoInput, isCameraRunning);
+            controllerCamera.CaptureCamera();
+            isCameraRunning = true;
+            controllerCamera.setIsCameraRunning(isCameraRunning);
         }
+        
 
-        private void BtnStartCamera_Click(object sender, EventArgs e)
-        {
-            if(btnStartCamera.Text.Equals("INICIAR CAMARA"))
-            {
-                controllerCamera.CaptureCamera();
-                btnStartCamera.Text = "DETENER CAMARA";
-                isCameraRunning = true;
-                controllerCamera.setIsCameraRunning(isCameraRunning);
-            }
-            else
-            {
-                controllerCamera.stopCamera();
-                btnStartCamera.Text = "INICIAR CAMARA";
-                isCameraRunning = false;
-                controllerCamera.setIsCameraRunning(isCameraRunning);
-            }
-
-        }
-
-        private void BtnCapturePhoto_Click(object sender, EventArgs e)
+        private void BtnCapturePhoto_Click_1(object sender, EventArgs e)
         {
             if (isCameraRunning)
             {
@@ -86,11 +71,12 @@ namespace visit_control.Forms
             }
         }
 
-        private void scrCapturePhoto_FormClosing(object sender, FormClosingEventArgs e)
+        private void ScrCapturePhoto_FormClosing(object sender, FormClosingEventArgs e)
         {
             controllerCamera.stopCamera();
             isCameraRunning = false;
             controllerCamera.setIsCameraRunning(isCameraRunning);
+            Console.WriteLine("CAMARA DETENIDA");
         }
     }
 }
