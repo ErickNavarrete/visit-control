@@ -56,7 +56,7 @@
             this.gbVisitantes = new System.Windows.Forms.GroupBox();
             this.btnImage = new System.Windows.Forms.Button();
             this.btnCamera = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbVisit = new System.Windows.Forms.GroupBox();
             this.tbReason = new System.Windows.Forms.TextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.rtbObservation = new System.Windows.Forms.RichTextBox();
@@ -72,10 +72,11 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbLVisitors = new System.Windows.Forms.GroupBox();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbVisitantes.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbVisit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVistors)).BeginInit();
             this.gbLVisitors.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +95,8 @@
             this.btnSaveVisit,
             this.btnNewVisitor,
             this.btnNewVisit,
-            this.btnRecord});
+            this.btnRecord,
+            this.btnEdit});
             this.toolStrip1.Location = new System.Drawing.Point(1, 60);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1130, 34);
@@ -113,8 +115,8 @@
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(62, 31);
-            this.btnSearch.Text = "Buscar";
+            this.btnSearch.Size = new System.Drawing.Size(71, 31);
+            this.btnSearch.Text = "BUSCAR";
             this.btnSearch.Click += new System.EventHandler(this.stbtSearch_Click);
             // 
             // btnCancel
@@ -123,8 +125,8 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(73, 31);
-            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Size = new System.Drawing.Size(87, 31);
+            this.btnCancel.Text = "CANCELAR";
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -134,8 +136,8 @@
             this.btnSaveVisitor.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveVisitor.Image")));
             this.btnSaveVisitor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSaveVisitor.Name = "btnSaveVisitor";
-            this.btnSaveVisitor.Size = new System.Drawing.Size(117, 31);
-            this.btnSaveVisitor.Text = "Guardar Visitante";
+            this.btnSaveVisitor.Size = new System.Drawing.Size(137, 31);
+            this.btnSaveVisitor.Text = "GUARDAR VISITANTE";
             this.btnSaveVisitor.Visible = false;
             this.btnSaveVisitor.Click += new System.EventHandler(this.btnSaveVisitor_Click);
             // 
@@ -145,8 +147,8 @@
             this.btnSaveVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveVisit.Image")));
             this.btnSaveVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSaveVisit.Name = "btnSaveVisit";
-            this.btnSaveVisit.Size = new System.Drawing.Size(104, 31);
-            this.btnSaveVisit.Text = "Registrar Visita";
+            this.btnSaveVisit.Size = new System.Drawing.Size(120, 31);
+            this.btnSaveVisit.Text = "REGISTRAR VISITA";
             this.btnSaveVisit.Visible = false;
             this.btnSaveVisit.Click += new System.EventHandler(this.btnSaveVisit_Click);
             // 
@@ -156,8 +158,8 @@
             this.btnNewVisitor.Image = ((System.Drawing.Image)(resources.GetObject("btnNewVisitor.Image")));
             this.btnNewVisitor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNewVisitor.Name = "btnNewVisitor";
-            this.btnNewVisitor.Size = new System.Drawing.Size(110, 31);
-            this.btnNewVisitor.Text = "Nuevo Visitante";
+            this.btnNewVisitor.Size = new System.Drawing.Size(122, 31);
+            this.btnNewVisitor.Text = "NUEVO VISITANTE";
             this.btnNewVisitor.Click += new System.EventHandler(this.btnNewVisitor_Click);
             // 
             // btnNewVisit
@@ -166,8 +168,8 @@
             this.btnNewVisit.Image = ((System.Drawing.Image)(resources.GetObject("btnNewVisit.Image")));
             this.btnNewVisit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNewVisit.Name = "btnNewVisit";
-            this.btnNewVisit.Size = new System.Drawing.Size(92, 31);
-            this.btnNewVisit.Text = "Nueva Visita";
+            this.btnNewVisit.Size = new System.Drawing.Size(99, 31);
+            this.btnNewVisit.Text = "NUEVA VISITA";
             this.btnNewVisit.Visible = false;
             this.btnNewVisit.Click += new System.EventHandler(this.btnNewVisit_Click);
             // 
@@ -176,8 +178,8 @@
             this.btnRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnRecord.Image")));
             this.btnRecord.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(73, 31);
-            this.btnRecord.Text = "Registro ";
+            this.btnRecord.Size = new System.Drawing.Size(79, 31);
+            this.btnRecord.Text = "REGISTRO";
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
             // tbMLastName
@@ -408,22 +410,22 @@
             this.btnCamera.UseVisualStyleBackColor = false;
             this.btnCamera.Click += new System.EventHandler(this.BtnCamera_Click);
             // 
-            // groupBox1
+            // gbVisit
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.tbReason);
-            this.groupBox1.Controls.Add(this.materialLabel5);
-            this.groupBox1.Controls.Add(this.rtbObservation);
-            this.groupBox1.Controls.Add(this.materialLabel4);
-            this.groupBox1.Controls.Add(this.tbDepartment);
-            this.groupBox1.Controls.Add(this.materialLabel3);
-            this.groupBox1.Location = new System.Drawing.Point(539, 363);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(584, 266);
-            this.groupBox1.TabIndex = 51;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DEPARTAMENTO";
+            this.gbVisit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbVisit.BackColor = System.Drawing.Color.Transparent;
+            this.gbVisit.Controls.Add(this.tbReason);
+            this.gbVisit.Controls.Add(this.materialLabel5);
+            this.gbVisit.Controls.Add(this.rtbObservation);
+            this.gbVisit.Controls.Add(this.materialLabel4);
+            this.gbVisit.Controls.Add(this.tbDepartment);
+            this.gbVisit.Controls.Add(this.materialLabel3);
+            this.gbVisit.Location = new System.Drawing.Point(539, 363);
+            this.gbVisit.Name = "gbVisit";
+            this.gbVisit.Size = new System.Drawing.Size(584, 266);
+            this.gbVisit.TabIndex = 51;
+            this.gbVisit.TabStop = false;
+            this.gbVisit.Text = "VISITAS";
             // 
             // tbReason
             // 
@@ -512,7 +514,7 @@
             this.dgvVistors.Location = new System.Drawing.Point(6, 19);
             this.dgvVistors.Name = "dgvVistors";
             this.dgvVistors.ReadOnly = true;
-            this.dgvVistors.Size = new System.Drawing.Size(509, 504);
+            this.dgvVistors.Size = new System.Drawing.Size(509, 498);
             this.dgvVistors.TabIndex = 52;
             this.dgvVistors.DoubleClick += new System.EventHandler(this.dgvVistors_DoubleClick);
             // 
@@ -575,13 +577,24 @@
             this.gbLVisitors.TabStop = false;
             this.gbLVisitors.Text = "VISITANTES";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(64, 31);
+            this.btnEdit.Text = "EDITAR";
+            this.btnEdit.Visible = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 641);
             this.Controls.Add(this.gbLVisitors);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbVisit);
             this.Controls.Add(this.gbVisitantes);
             this.Controls.Add(this.toolStrip1);
             this.Name = "scrDashBoard";
@@ -593,8 +606,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.gbVisitantes.ResumeLayout(false);
             this.gbVisitantes.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbVisit.ResumeLayout(false);
+            this.gbVisit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVistors)).EndInit();
             this.gbLVisitors.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -624,7 +637,7 @@
         private System.Windows.Forms.TextBox tbAddress;
         private MaterialSkin.Controls.MaterialLabel materialLabel13;
         private System.Windows.Forms.GroupBox gbVisitantes;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbVisit;
         private System.Windows.Forms.TextBox tbDepartment;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.RichTextBox rtbObservation;
@@ -646,5 +659,6 @@
         internal System.Windows.Forms.Button btnImage;
         internal System.Windows.Forms.Button btnCamera;
         private System.Windows.Forms.GroupBox gbLVisitors;
+        private System.Windows.Forms.ToolStripButton btnEdit;
     }
 }

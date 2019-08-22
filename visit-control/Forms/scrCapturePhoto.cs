@@ -78,5 +78,30 @@ namespace visit_control.Forms
             controllerCamera.setIsCameraRunning(isCameraRunning);
             Console.WriteLine("CAMARA DETENIDA");
         }
+
+        private void btnCapture_Click(object sender, EventArgs e)
+        {
+            if (isCameraRunning)
+            {
+                if (photoInput.BackgroundImage != null)
+                {
+                    Bitmap bitmap = new Bitmap(photoInput.BackgroundImage);
+                    MemoryStream stream = new MemoryStream();
+                    bitmap.Save(stream, ImageFormat.Jpeg);
+                    picture.BackgroundImage = Image.FromStream(stream);
+                    controllerCamera.setIsCameraRunning(false);
+                    controllerCamera.stopCamera();
+                    this.Close();
+                }
+                else
+                {
+                    Console.WriteLine("No contiene imagen");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cannot take picture if the camera isn't capturing image!");
+            }
+        }
     }
 }

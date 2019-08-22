@@ -35,13 +35,15 @@
             this.dtpF2 = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvVisit = new System.Windows.Forms.DataGridView();
+            this.cmsPrint = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.printTicket = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmsPrint = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.printTicket = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisit)).BeginInit();
             this.cmsPrint.SuspendLayout();
             this.SuspendLayout();
@@ -99,13 +101,32 @@
             this.Column5,
             this.Column7,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4,
+            this.Column6});
             this.dgvVisit.ContextMenuStrip = this.cmsPrint;
             this.dgvVisit.Location = new System.Drawing.Point(12, 107);
             this.dgvVisit.Name = "dgvVisit";
             this.dgvVisit.ReadOnly = true;
             this.dgvVisit.Size = new System.Drawing.Size(776, 331);
             this.dgvVisit.TabIndex = 53;
+            // 
+            // cmsPrint
+            // 
+            this.cmsPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmsPrint.Depth = 0;
+            this.cmsPrint.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.printTicket});
+            this.cmsPrint.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cmsPrint.Name = "cmsPrint";
+            this.cmsPrint.Size = new System.Drawing.Size(166, 26);
+            // 
+            // printTicket
+            // 
+            this.printTicket.Name = "printTicket";
+            this.printTicket.Size = new System.Drawing.Size(165, 22);
+            this.printTicket.Text = "IMPRIMIR TICKET";
+            this.printTicket.Click += new System.EventHandler(this.printTicket_Click);
             // 
             // Column1
             // 
@@ -129,10 +150,10 @@
             // 
             // Column2
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.HeaderText = "DEPARTAMENTO";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
             // 
             // Column3
             // 
@@ -144,22 +165,20 @@
             this.Column3.ReadOnly = true;
             this.Column3.Width = 200;
             // 
-            // cmsPrint
+            // Column4
             // 
-            this.cmsPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmsPrint.Depth = 0;
-            this.cmsPrint.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.printTicket});
-            this.cmsPrint.MouseState = MaterialSkin.MouseState.HOVER;
-            this.cmsPrint.Name = "cmsPrint";
-            this.cmsPrint.Size = new System.Drawing.Size(166, 26);
+            this.Column4.HeaderText = "RAZÓN";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 150;
             // 
-            // printTicket
+            // Column6
             // 
-            this.printTicket.Name = "printTicket";
-            this.printTicket.Size = new System.Drawing.Size(165, 22);
-            this.printTicket.Text = "IMPRIMIR TICKET";
-            this.printTicket.Click += new System.EventHandler(this.printTicket_Click);
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "OBSERVACIONES";
+            this.Column6.MinimumWidth = 150;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // scrRecord
             // 
@@ -189,12 +208,14 @@
         private System.Windows.Forms.DateTimePicker dtpF2;
         internal System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgvVisit;
+        private MaterialSkin.Controls.MaterialContextMenuStrip cmsPrint;
+        private System.Windows.Forms.ToolStripMenuItem printTicket;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private MaterialSkin.Controls.MaterialContextMenuStrip cmsPrint;
-        private System.Windows.Forms.ToolStripMenuItem printTicket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

@@ -41,11 +41,13 @@ namespace visit_control
             }
 
             this.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
 
             var db = new ConnectionDB();
             //COMPROBAMOS QUE EL USUARIO EXISTA EN BASE DE DATOS
             var users = db.Users.Where(x => x.password == tbPassword.Text).FirstOrDefault();
 
+            Cursor.Current = Cursors.Default;
             this.Enabled = true;
 
             if (users == null)

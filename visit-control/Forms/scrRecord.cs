@@ -49,15 +49,17 @@ namespace visit_control.Forms
                 x.m_last_name,
                 x.status,
                 y.department,
-                y.entry
+                y.entry,
+                y.reason,
+                y.observation
             });
 
             if (!string.IsNullOrEmpty(searchValue))
             {
-                data = data.Where(x => x.name.Contains(searchValue) ||
-                                       x.last_name.Contains(searchValue) ||
-                                       x.m_last_name.Contains(searchValue) ||
-                                       x.department.Contains(searchValue)
+                data = data.Where(x => searchValue.Contains(x.name) ||
+                                       searchValue.Contains(x.last_name) ||
+                                       searchValue.Contains(x.m_last_name) ||
+                                       searchValue.Contains(x.department)
                 ).Where(x => x.status == 1 && DbFunctions.TruncateTime(x.entry) >= DbFunctions.TruncateTime(date1) && DbFunctions.TruncateTime(x.entry) <= DbFunctions.TruncateTime(date2));
             }
 
@@ -67,7 +69,9 @@ namespace visit_control.Forms
                     item.last_name,
                     item.m_last_name,
                     item.department,
-                    item.entry);
+                    item.entry,
+                    item.reason,
+                    item.observation);
             }
         }
 

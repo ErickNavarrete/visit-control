@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace visit_control.Models
     public partial class scrDashBoard : MaterialForm
     {
         private int id_visitor;
+        private int id_visit;
 
         public scrDashBoard()
         {
@@ -34,6 +36,8 @@ namespace visit_control.Models
                 Accent.LightBlue200,
                 TextShade.WHITE
             );
+
+            fill_dgv("");
         }
 
         private void scrDashBoard_FormClosed(object sender, FormClosedEventArgs e)
@@ -203,23 +207,31 @@ namespace visit_control.Models
         private void btnNewVisitor_Click(object sender, EventArgs e)
         {
             enable_disable_visitor(true);
+            enable_disable_visit(true);
 
             btnCancel.Visible = true;
             btnSaveVisitor.Visible = true;
             btnNewVisitor.Visible = false;
             btnNewVisit.Visible = false;
             btnSaveVisit.Visible = false;
+            btnEdit.Visible = false;
+            btnSaveVisitor.Text = "GUARDAR VISITANTE";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             clean_fields_visitor();
+            clean_fields_visit();
             enable_disable_visitor(false);
+            enable_disable_visit(false);
             btnCancel.Visible = false;
             btnSaveVisitor.Visible = false;
             btnNewVisitor.Visible = true;
             btnNewVisit.Visible = false;
             btnSaveVisit.Visible = false;
+            btnEdit.Visible = false;
+            gbVisit.Text = "VISITAS";
+            btnSaveVisitor.Text = "GUARDAR VISITANTE";
         }
 
         private void btnSaveVisitor_Click(object sender, EventArgs e)
@@ -230,25 +242,90 @@ namespace visit_control.Models
             }
 
             var db = new ConnectionDB();
-            var visitor = new Visitors
+            string name = tbName.Text + " " + tbLastName.Text + " " + tbMLastName.Text;
+
+            if (btnSaveVisitor.Text == "GUARDAR VISITANTE")
             {
-                name = tbName.Text,
-                last_name = tbLastName.Text,
-                m_last_name = tbMLastName.Text,
-                alias = tbAlias.Text,
-                email = tbEmail.Text,
-                phone = tbPhone.Text,
-                address = tbAddress.Text,
-                status = 1,
-                image = ConvertImageToBase64(pbImage.BackgroundImage)
-            };
+                var visitor = new Visitors
+                {
+                    name = tbName.Text,
+                    last_name = tbLastName.Text,
+                    m_last_name = tbMLastName.Text,
+                    alias = tbAlias.Text,
+                    email = tbEmail.Text,
+                    phone = tbPhone.Text,
+                    address = tbAddress.Text,
+                    status = 1,
+                    image = ConvertImageToBase64(pbImage.BackgroundImage)
+                };
 
-            db.Visitors.Add(visitor);
-            db.SaveChanges();
+                db.Visitors.Add(visitor);
+                db.SaveChanges();
 
-            MessageBox.Show("Registro realizado con éxito", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!string.IsNullOrEmpty(tbDepartment.Text))
+                {
+                    var visitorDepartment = new Visitors_Department
+                    {
+                        department = tbDepartment.Text,
+                        reason = tbReason.Text,
+                        observation = rtbObservation.Text,
+                        entry = DateTime.Now,
+                        id_visitor = visitor.id
+                    };
+
+                    db.Visitors_Department.Add(visitorDepartment);
+                    db.SaveChanges();
+                    print_visitor_info(name, visitorDepartment.department, visitorDepartment.entry);
+                    MessageBox.Show("Registro realizado con éxito", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                var visitor_edit = db.Visitors.FirstOrDefault(x => x.id == id_visitor);
+                if (visitor_edit != null)
+                {
+                    visitor_edit.name = tbName.Text;
+                    visitor_edit.last_name = tbLastName.Text;
+                    visitor_edit.m_last_name = tbMLastName.Text;
+                    visitor_edit.alias = tbAlias.Text;
+                    visitor_edit.email = tbEmail.Text;
+                    visitor_edit.phone = tbPhone.Text;
+                    visitor_edit.address = tbAddress.Text;
+                    visitor_edit.status = 1;
+                    visitor_edit.image = ConvertImageToBase64(pbImage.BackgroundImage);
+
+                    if (db.Entry(visitor_edit).State == EntityState.Modified)
+                    {
+                        db.SaveChanges();
+                    }
+                    
+                    if (!string.IsNullOrEmpty(tbDepartment.Text))
+                    {
+                        var visitorDepartmentEd = db.Visitors_Department.FirstOrDefault(x => x.id == id_visit);
+                        if (visitorDepartmentEd != null)
+                        {
+                            visitorDepartmentEd.department = tbDepartment.Text;
+                            visitorDepartmentEd.reason = tbReason.Text;
+                            visitorDepartmentEd.observation = rtbObservation.Text;
+
+                            if (db.Entry(visitorDepartmentEd).State == EntityState.Modified)
+                            {
+                                visitorDepartmentEd.entry = DateTime.Now;
+                                db.Entry(visitorDepartmentEd).State = EntityState.Modified;
+                                db.SaveChanges();
+
+                                print_visitor_info(name, visitorDepartmentEd.department, visitorDepartmentEd.entry);
+                            }
+                        }
+                        MessageBox.Show("Registro actualizado con éxito", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+
             clean_fields_visitor();
+            clean_fields_visit();
             enable_disable_visitor(false);
+            enable_disable_visit(false);
             fill_dgv("");
 
             btnCancel.Visible = false;
@@ -256,6 +333,7 @@ namespace visit_control.Models
             btnNewVisitor.Visible = true;
             btnNewVisit.Visible = false;
             btnSaveVisit.Visible = false;
+            btnEdit.Visible = false;
         }
 
         private void stbtSearch_Click(object sender, EventArgs e)
@@ -275,6 +353,13 @@ namespace visit_control.Models
 
             if (visitor == null) return;
 
+            var visit = db.Visitors_Department.FirstOrDefault(x => x.id_visitor == visitor.id);
+            
+            clean_fields_visitor();
+            clean_fields_visit();
+            enable_disable_visitor(false);
+            enable_disable_visit(false);
+
             pbImage.BackgroundImage = ConvertBase64ToImage(visitor.image);
             tbName.Text = visitor.name;
             tbLastName.Text = visitor.last_name;
@@ -284,17 +369,32 @@ namespace visit_control.Models
             tbPhone.Text = visitor.phone;
             tbAddress.Text = visitor.address;
 
+            if (visit != null)
+            {
+                id_visit = visit.id;
+                tbDepartment.Text = visit.department;
+                tbReason.Text = visit.reason;
+                rtbObservation.Text = visit.observation;
+            }
+
             btnNewVisitor.Visible = false;
             btnNewVisit.Visible = true;
             btnCancel.Visible = true;
             btnSaveVisitor.Visible = false;
+            btnEdit.Visible = true;
+
+            gbVisit.Text = "ÚLTIMA VISITA";
         }
 
         private void btnNewVisit_Click(object sender, EventArgs e)
         {
             enable_disable_visit(true);
+            clean_fields_visit();
+
             btnNewVisit.Visible = false;
             btnSaveVisit.Visible = true;
+            btnEdit.Visible = false;
+            gbVisit.Text = "VISITAS";
         }
 
         private void btnSaveVisit_Click(object sender, EventArgs e)
@@ -326,6 +426,7 @@ namespace visit_control.Models
             btnNewVisitor.Visible = true;
             btnNewVisit.Visible = false;
             btnSaveVisit.Visible = false;
+            btnEdit.Visible = false;
         }
 
         private void btnImage_Click(object sender, EventArgs e)
@@ -361,6 +462,24 @@ namespace visit_control.Models
             var scrRecord = new scrRecord();
             scrRecord.Show();
             scrRecord.BringToFront();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            btnCancel.Visible = true;
+            btnSaveVisitor.Visible = true;
+            btnNewVisitor.Visible = false;
+            btnNewVisit.Visible = false;
+            btnSaveVisit.Visible = false;
+            btnEdit.Visible = false;
+
+            btnSaveVisitor.Text = "GUARDAR EDICIÓN";
+            enable_disable_visitor(true);
+
+            if (!string.IsNullOrEmpty(tbDepartment.Text))
+            {
+                enable_disable_visit(true);
+            }
         }
     }
 }
