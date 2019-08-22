@@ -95,7 +95,7 @@ namespace visit_control.Models
             if (string.IsNullOrEmpty(tbAlias.Text))
             {
                 MessageBox.Show("Campo obligatorio", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbName.Focus();
+                tbAlias.Focus();
                 return false;
             }
 
@@ -128,12 +128,12 @@ namespace visit_control.Models
             var data = db.Visitors.Where(x => x.status == 1);
             if (!string.IsNullOrEmpty(searchValue))
             {
-                data = data.Where(x=>   x.name.Contains(searchValue) ||
-                                        x.last_name.Contains(searchValue) ||
-                                        x.m_last_name.Contains(searchValue) ||
-                                        x.alias.Contains(searchValue) ||
-                                        x.email.Contains(searchValue) ||
-                                        x.phone.Contains(searchValue));
+                data = data.Where(x=> searchValue.Contains(x.name) ||
+                                      searchValue.Contains(x.last_name) ||
+                                      searchValue.Contains(x.m_last_name) ||
+                                      searchValue.Contains(x.alias) ||
+                                      searchValue.Contains(x.email) ||
+                                      searchValue.Contains(x.phone));
             }
 
             foreach (var item in data.ToList())

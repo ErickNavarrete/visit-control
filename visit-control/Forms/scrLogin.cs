@@ -39,10 +39,15 @@ namespace visit_control
                 tbPassword.Focus();
                 return;
             }
-            var db = new ConnectionDB();
 
+            this.Enabled = false;
+
+            var db = new ConnectionDB();
             //COMPROBAMOS QUE EL USUARIO EXISTA EN BASE DE DATOS
             var users = db.Users.Where(x => x.password == tbPassword.Text).FirstOrDefault();
+
+            this.Enabled = true;
+
             if (users == null)
             {
                 MessageBox.Show("El usuario no existe", "Operador", MessageBoxButtons.OK, MessageBoxIcon.Error);

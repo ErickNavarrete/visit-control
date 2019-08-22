@@ -71,11 +71,13 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbLVisitors = new System.Windows.Forms.GroupBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbVisitantes.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVistors)).BeginInit();
+            this.gbLVisitors.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -174,7 +176,7 @@
             this.btnRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnRecord.Image")));
             this.btnRecord.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(73, 20);
+            this.btnRecord.Size = new System.Drawing.Size(73, 31);
             this.btnRecord.Text = "Registro ";
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
             // 
@@ -196,9 +198,9 @@
             this.materialLabel11.Location = new System.Drawing.Point(153, 116);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
-            this.materialLabel11.Size = new System.Drawing.Size(128, 19);
+            this.materialLabel11.Size = new System.Drawing.Size(156, 19);
             this.materialLabel11.TabIndex = 47;
-            this.materialLabel11.Text = "Apellido Materno:";
+            this.materialLabel11.Text = "APELLIDO MATERNO:";
             // 
             // tbLastName
             // 
@@ -218,9 +220,9 @@
             this.materialLabel10.Location = new System.Drawing.Point(153, 68);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(124, 19);
+            this.materialLabel10.Size = new System.Drawing.Size(152, 19);
             this.materialLabel10.TabIndex = 46;
-            this.materialLabel10.Text = "Apellido Paterno:";
+            this.materialLabel10.Text = "APELLIDO PATERNO:";
             // 
             // tbPhone
             // 
@@ -248,9 +250,9 @@
             this.materialLabel7.Location = new System.Drawing.Point(378, 116);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(73, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(87, 19);
             this.materialLabel7.TabIndex = 45;
-            this.materialLabel7.Text = "Teléfono:";
+            this.materialLabel7.Text = "TELÉFONO:";
             // 
             // materialLabel6
             // 
@@ -262,9 +264,9 @@
             this.materialLabel6.Location = new System.Drawing.Point(378, 68);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(59, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(66, 19);
             this.materialLabel6.TabIndex = 44;
-            this.materialLabel6.Text = "Correo:";
+            this.materialLabel6.Text = "CORREO";
             // 
             // tbAlias
             // 
@@ -292,9 +294,9 @@
             this.materialLabel2.Location = new System.Drawing.Point(378, 19);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(57, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(62, 19);
             this.materialLabel2.TabIndex = 43;
-            this.materialLabel2.Text = "Apodo:";
+            this.materialLabel2.Text = "APODO:";
             // 
             // materialLabel1
             // 
@@ -306,9 +308,9 @@
             this.materialLabel1.Location = new System.Drawing.Point(153, 18);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(67, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(74, 19);
             this.materialLabel1.TabIndex = 42;
-            this.materialLabel1.Text = "Nombre:";
+            this.materialLabel1.Text = "NOMBRE:";
             // 
             // pbImage
             // 
@@ -342,9 +344,9 @@
             this.materialLabel13.Location = new System.Drawing.Point(153, 171);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
-            this.materialLabel13.Size = new System.Drawing.Size(77, 19);
+            this.materialLabel13.Size = new System.Drawing.Size(90, 19);
             this.materialLabel13.TabIndex = 49;
-            this.materialLabel13.Text = "Dirección:";
+            this.materialLabel13.Text = "DIRECCIÓN:";
             // 
             // gbVisitantes
             // 
@@ -369,10 +371,10 @@
             this.gbVisitantes.Controls.Add(this.tbEmail);
             this.gbVisitantes.Location = new System.Drawing.Point(539, 106);
             this.gbVisitantes.Name = "gbVisitantes";
-            this.gbVisitantes.Size = new System.Drawing.Size(584, 238);
+            this.gbVisitantes.Size = new System.Drawing.Size(584, 251);
             this.gbVisitantes.TabIndex = 50;
             this.gbVisitantes.TabStop = false;
-            this.gbVisitantes.Text = "Datos Visitante";
+            this.gbVisitantes.Text = "DATOS VISITANTE";
             // 
             // btnImage
             // 
@@ -421,7 +423,7 @@
             this.groupBox1.Size = new System.Drawing.Size(584, 266);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Departamento";
+            this.groupBox1.Text = "DEPARTAMENTO";
             // 
             // tbReason
             // 
@@ -441,9 +443,9 @@
             this.materialLabel5.Location = new System.Drawing.Point(8, 84);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(54, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(58, 19);
             this.materialLabel5.TabIndex = 54;
-            this.materialLabel5.Text = "Razón:";
+            this.materialLabel5.Text = "RAZÓN";
             // 
             // rtbObservation
             // 
@@ -464,9 +466,9 @@
             this.materialLabel4.Location = new System.Drawing.Point(8, 142);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(112, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(132, 19);
             this.materialLabel4.TabIndex = 51;
-            this.materialLabel4.Text = "Observaciones:";
+            this.materialLabel4.Text = "OBSERVACIONES:";
             // 
             // tbDepartment
             // 
@@ -486,9 +488,9 @@
             this.materialLabel3.Location = new System.Drawing.Point(8, 28);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(108, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(131, 19);
             this.materialLabel3.TabIndex = 50;
-            this.materialLabel3.Text = "Departamento:";
+            this.materialLabel3.Text = "DEPARTAMENTO:";
             // 
             // dgvVistors
             // 
@@ -507,10 +509,10 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvVistors.Location = new System.Drawing.Point(12, 106);
+            this.dgvVistors.Location = new System.Drawing.Point(6, 19);
             this.dgvVistors.Name = "dgvVistors";
             this.dgvVistors.ReadOnly = true;
-            this.dgvVistors.Size = new System.Drawing.Size(521, 523);
+            this.dgvVistors.Size = new System.Drawing.Size(509, 504);
             this.dgvVistors.TabIndex = 52;
             this.dgvVistors.DoubleClick += new System.EventHandler(this.dgvVistors_DoubleClick);
             // 
@@ -559,12 +561,26 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
+            // gbLVisitors
+            // 
+            this.gbLVisitors.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbLVisitors.BackColor = System.Drawing.Color.Transparent;
+            this.gbLVisitors.Controls.Add(this.dgvVistors);
+            this.gbLVisitors.Location = new System.Drawing.Point(12, 106);
+            this.gbLVisitors.Name = "gbLVisitors";
+            this.gbLVisitors.Size = new System.Drawing.Size(521, 523);
+            this.gbLVisitors.TabIndex = 53;
+            this.gbLVisitors.TabStop = false;
+            this.gbLVisitors.Text = "VISITANTES";
+            // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 641);
-            this.Controls.Add(this.dgvVistors);
+            this.Controls.Add(this.gbLVisitors);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbVisitantes);
             this.Controls.Add(this.toolStrip1);
@@ -580,6 +596,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVistors)).EndInit();
+            this.gbLVisitors.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -628,5 +645,6 @@
         private System.Windows.Forms.ToolStripButton btnRecord;
         internal System.Windows.Forms.Button btnImage;
         internal System.Windows.Forms.Button btnCamera;
+        private System.Windows.Forms.GroupBox gbLVisitors;
     }
 }

@@ -40,7 +40,7 @@
             this.btLogin.AutoSize = true;
             this.btLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btLogin.Depth = 0;
-            this.btLogin.Location = new System.Drawing.Point(142, 301);
+            this.btLogin.Location = new System.Drawing.Point(139, 293);
             this.btLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btLogin.Name = "btLogin";
@@ -54,7 +54,7 @@
             // tbPassword
             // 
             this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbPassword.Location = new System.Drawing.Point(86, 272);
+            this.tbPassword.Location = new System.Drawing.Point(83, 264);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(186, 20);
@@ -63,9 +63,8 @@
             // 
             // pbLogin
             // 
-            this.pbLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbLogin.Image = ((System.Drawing.Image)(resources.GetObject("pbLogin.Image")));
-            this.pbLogin.Location = new System.Drawing.Point(86, 93);
+            this.pbLogin.Location = new System.Drawing.Point(83, 89);
             this.pbLogin.Name = "pbLogin";
             this.pbLogin.Size = new System.Drawing.Size(186, 169);
             this.pbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
