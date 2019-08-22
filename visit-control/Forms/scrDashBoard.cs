@@ -190,12 +190,18 @@ namespace visit_control.Models
 
         private void print_visitor_info(string name, string department, DateTime entry)
         {
+            this.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
+
             dsVisitorInfo ds = new dsVisitorInfo();
             crVisitor cr = new crVisitor();
 
             ds.dtData.AdddtDataRow(name.ToUpper(), department.ToUpper(), entry.ToString("dd-MMMM-yyyy hh:mm:ss"));
 
             cr.SetDataSource(ds);
+            Cursor.Current = Cursors.Default;
+            this.Enabled = true;
+
             scrReport scr = new scrReport {crvReport = {ReportSource = cr}};
             scr.ShowDialog();
             ds.Clear();

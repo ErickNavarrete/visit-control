@@ -80,9 +80,15 @@ namespace visit_control.Forms
             dsVisitorInfo ds = new dsVisitorInfo();
             crVisitor cr = new crVisitor();
 
-            ds.dtData.AdddtDataRow(name.ToUpper(), department.ToUpper(), entry.ToString("dd-MMMM-yyyy hh:mm:ss"));
+            this.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
 
+            ds.dtData.AdddtDataRow(name.ToUpper(), department.ToUpper(), entry.ToString("dd-MMMM-yyyy hh:mm:ss"));
             cr.SetDataSource(ds);
+
+            Cursor.Current = Cursors.Default;
+            this.Enabled = true;
+
             scrReport scr = new scrReport { crvReport = { ReportSource = cr } };
             scr.ShowDialog();
             ds.Clear();
